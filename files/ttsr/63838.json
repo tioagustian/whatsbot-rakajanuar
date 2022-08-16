@@ -1,0 +1,80 @@
+{
+  "siteId": "63838",
+  "siteName": "BALUNG",
+  "shelter": [
+    {
+      "file": "./files/ttsr/63838/shelter/63838_View site_6282111182808@c.us_1660623097005.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_View site_6282111182808@c.us_1660623097005.jpeg",
+      "author": "6282111182808@c.us"
+    },
+    {
+      "file": "./files/ttsr/63838/shelter/63838_Main site_6282111182808@c.us_1660623113759.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_Main site_6282111182808@c.us_1660623113759.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ],
+  "kwh": [
+    {
+      "file": "./files/ttsr/63838/kwh/63838_kWh_6282111182808@c.us_1660623145240.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_kWh_6282111182808@c.us_1660623145240.jpeg",
+      "author": "6282111182808@c.us"
+    },
+    {
+      "file": "./files/ttsr/63838/kwh/63838_MCB kWh_6282111182808@c.us_1660623165138.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_MCB kWh_6282111182808@c.us_1660623165138.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ],
+  "power": [
+    {
+      "file": "./files/ttsr/63838/power/63838__6282111182808@c.us_1660623214743.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838__6282111182808@c.us_1660623214743.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ],
+  "prop": [
+    {
+      "file": "./files/ttsr/63838/prop/63838__6282111182808@c.us_1660623243374.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838__6282111182808@c.us_1660623243374.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ],
+  "rectifier": [
+    {
+      "file": "./files/ttsr/63838/rectifier/63838_Rectifier 1 brand_6282111182808@c.us_1660623281514.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_Rectifier 1 brand_6282111182808@c.us_1660623281514.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ],
+  "installation": [
+    {
+      "file": "./files/ttsr/63838/installation/63838_View full rack rectifier_6282111182808@c.us_1660623323276.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_View full rack rectifier_6282111182808@c.us_1660623323276.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ],
+  "serial": [
+    {
+      "file": "./files/ttsr/63838/serial/63838_Serial number_6282111182808@c.us_1660623363380.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_Serial number_6282111182808@c.us_1660623363380.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ],
+  "layout": [
+    {
+      "file": "./files/ttsr/63838/layout/63838_Layout_6282111182808@c.us_1660623402306.jpeg",
+      "mimeType": "image/jpeg",
+      "fileName": "63838_Layout_6282111182808@c.us_1660623402306.jpeg",
+      "author": "6282111182808@c.us"
+    }
+  ]
+}
