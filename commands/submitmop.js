@@ -2,7 +2,7 @@ const fs = require('fs');
 const { MessageMedia } = require('whatsapp-web.js');
 
 const submitId = function(bot, chat) {
-    const admin = ['6282111182808@c.us', '6285893586445@c.us'];
+    const admin = ['6289624813760@c.us', '6282120475719@c.us', '6288976393216@c.us', '6282111182808@c.us', '6285893586445@c.us'];
     if (!admin.includes(chat.from)) {
         return bot.sendMessage(chat.from, 'You are not authorized to use this command');
     }
