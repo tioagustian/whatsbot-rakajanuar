@@ -61,7 +61,7 @@ const processFile = async function(bot, chat) {
 }
 
 const done = async function(bot, chat) {
-    await chat.sendMessage(chat.from, `MOP file has been saved.\nThank you!`);
+    await chat.sendMessage(chat.from, `Topologi file has been saved.\nThank you!`);
     await chat.backToMenu();
 }
 

@@ -125,12 +125,12 @@ const next = async function(previous = '', siteName, siteId, from, bot) {
         await bot.sendMessage(from, getMessage(nexStep, siteName, siteId));
         const example = img(nexStep);
         if (example.length == 0) {
-            return bot.sendMessage(from, 'No example found\nPlease send your photo', {id: siteId, action: 'shelter'}, processFile);
+            return bot.sendMessage(from, 'No example found\nPlease send your photo', {id: siteId, action: nexStep}, processFile);
         }
         example.forEach(async img => {
             let media = MessageMedia.fromFilePath(img.path);
             let caption = img.caption;
-            await bot.sendMessage(from, media, {caption: caption, id: siteId, action: "shelter"}, processFile);
+            await bot.sendMessage(from, media, {caption: caption, id: siteId, action: nexStep}, processFile);
         });
     } else {
         return done(bot, from);
