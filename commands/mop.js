@@ -9,16 +9,20 @@ const processId = function(bot, chat) {
     if (chat.body == '!cancel') {
         return bot.backToMenu();
     }
+
+    const siteId = chat.body.split(' ')[0];
+    if (!/^[a-zA-Z0-9]+$/.test(siteId)) {
+        return chat.sendMessage(chat.from, 'Site ID must be alphanumeric', {}, processId);
+    }
     
-    if (!fs.existsSync(`./files/mop/${chat.body}.json`)) {
+    if (!fs.existsSync(`./files/mop/${siteId}.json`)) {
         return bot.sendMessage(chat.from, 'MOP ID not found', {}, processId);
     }
 
-    const mop = JSON.parse(fs.readFileSync(`./files/mop/${chat.body}.json`));
-    const file = fs.readFileSync(`./files/${mop.file}`);
-    const tmp = file.toString().replace(/[“”‘’]/g,'');
+    const mop = JSON.parse(fs.readFileSync(`./files/mop/${siteId}.json`));
+    const file = fs.readFileSync(`${mop.file.path}`);
     const base64File = Buffer.from(file).toString('base64');
-    const media = new MessageMedia(mop.mimeType, base64File, mop.fileName);
+    const media = new MessageMedia(mop.file.mimeType, base64File, mop.file.name);
     bot.reply(media);
 }
 

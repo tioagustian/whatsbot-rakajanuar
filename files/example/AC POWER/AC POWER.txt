@@ -1,0 +1,5 @@
+View Genset 
+View ATS
+
+Voltage Measurement at ATS Panel S-T 368,7 V
+Voltage Measurement at ATS Panel R-T 372,2 V

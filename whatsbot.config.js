@@ -2,11 +2,14 @@ const example = require('./commands/example');
 const topologi = require('./commands/topologi');
 const mop = require('./commands/mop');
 const permit = require('./commands/permit');
-const tikor = require('./commands/tikor');
-const ttsr = require('./commands/ttsr');
+const tssr = require('./commands/tssr');
+const evidence = require('./commands/evidence');
+const submitmop = require('./commands/submitmop');
+const submittp = require('./commands/submittp');
+const submitpermit = require('./commands/submitpermit');
 
 module.exports = {
-  cpm: 750,
+  cpm: 1000,
   welcomeMessage: {
     enabled: true,
     message: 'Welcome to WhatsBot!',
@@ -43,10 +46,34 @@ module.exports = {
       action: permit.submitId
     },
     {
-      keyword: '!ttsr',
-      description: 'Submit TTSR',
+      keyword: '!tssr',
+      description: 'Submit TSSR',
       accept: 'text',
-      action: ttsr.submitId
-    }
+      action: tssr.submitId
+    },
+    {
+      keyword: '!evidence',
+      description: 'Submit evidence',
+      accept: 'text',
+      action: evidence.submitId
+    },
+    {
+      keyword: '!submittp',
+      description: 'Submit Topologi file',
+      accept: 'text',
+      action: submittp.submitId
+    },
+    {
+      keyword: '!submitmop',
+      description: 'Submit MOP file',
+      accept: 'text',
+      action: submitmop.submitId
+    },
+    {
+      keyword: '!submitpermit',
+      description: 'Submit Permit file',
+      accept: 'text',
+      action: submitpermit.submitId
+    },
   ]
 };
