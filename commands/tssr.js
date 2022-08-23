@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require("path");
 const { MessageMedia } = require('whatsapp-web.js');
 
 const submitId = function(bot, chat) {
@@ -138,193 +139,213 @@ const next = async function(previous = '', siteName, siteId, from, bot) {
 }
 
 const img = function(step) {
-    const imgs = {
-        shelter: [
-            {
-                path: './files/example/Shelter View/image033.png',
-                caption: 'Shelter view'
-            },
-            {
-                path: './files/example/Shelter View/image035.png',
-                caption: 'Shelter view'
-            },
-            {
-                path: './files/example/Shelter View/image037.png',
-                caption: 'Shelter view'
-            },
-            {
-                path: './files/example/Shelter View/image039.png',
-                caption: 'Shelter view'
-            },
-            {
-                path: './files/example/Shelter View/image041.png',
-                caption: 'Shelter view'
-            }
-        ],
-        kwh: [
-            {
-                path: './files/example/KWH/image043.png',
-                caption: 'KWH'
-            },
-            {
-                path: './files/example/KWH/image045.png',
-                caption: 'MCB KWH'
-            },
-            {
-                path: './files/example/KWH/image047.png',
-                caption: 'Phase R Load Current (Measured) 1.14 A' 
-            },
-            {
-                path: './files/example/KWH/image049.png',
-                caption: 'Phase S Load Current (Measured) 1.05  A'
-            },
-            {
-                path: './files/example/KWH/image051.png',
-                caption: 'Phase T Load Current (Measured) 1.26  A'
-            },
-            {
-                path: './files/example/KWH/image053.png',
-                caption: 'Phase N Load Current (Measured) 0.09 A'
-            }
-        ],
-        power: [
-            {
-                path: './files/example/AC POWER/ACPDB OUTDOOR.png',
-                caption: 'AC Power Distribution Board Outdoor'
-            },
-            {
-                path: './files/example/AC POWER/Voltage Measurement at Panel R-N 22.0 V.png',
-                caption: 'Voltage Measurement at Panel R-N 22.0 V'
-            },
-            {
-                path: './files/example/AC POWER/Voltage Measurement at Panel S-N 22.0 V.png',
-                caption: 'Voltage Measurement at Panel S-N 22.0 V'
-            },
-            {
-                path: './files/example/AC POWER/Voltage Measurement at Panel T-N 22.0 V.png',
-                caption: 'Voltage Measurement at Panel T-N 22.0 V'
-            }
-        ],
-        prop: [
-            {
-                path: './files/example/PROP SAS Sx 7210/image060.png',
-                caption: 'FULL RACK RECTIFIER'
-            },
-            {
-                path: './files/example/PROP SAS Sx 7210/image062.png',
-                caption: 'PROPOSED NEW SAS Sx 7210'
-            },
-            {
-                path: './files/example/PROP SAS Sx 7210/image064.png',
-                caption: 'MCB SAS Sx 7210'
-            },
-            {
-                path: './files/example/PROP SAS Sx 7210/image067.png',
-                caption: 'GROUNDING'
-            },
-        ],
-        rectifier: [
-            {
-                path: './files/example/Rectifier/image070.png',
-                caption: 'Rectifier 1 Brand'
-            },
-            {
-                path: './files/example/Rectifier/image072.png',
-                caption: 'Module Rectifier 1'
-            },
-            {
-                path: './files/example/Rectifier/image074.png',
-                caption: ' Current Load 1'
-            },
-            {
-                path: './files/example/Rectifier/image076.png',
-                caption: 'Existing Battery Bank'
-            }
-        ],
-        installation: [
-            {
-                path: './files/example/Standart Installation/image082.png',
-                caption: 'VIEW FULL RACK RECTIFIER OPEN'
-            },
-            {
-                path: './files/example/Standart Installation/image083.png',
-                caption: 'VIEW FULL RACK RECTIFIER CLOSE'
-            },
-            {
-                path: './files/example/Standart Installation/image086.png',
-                caption: 'MCB/POWER CONNECTION SAS Sx 7210 (LABEL)'
-            },
-            {
-                path: './files/example/Standart Installation/image088.png',
-                caption: 'VIEW SAS Sx 7210 INSTALLED'
-            },
-            {
-                path: './files/example/Standart Installation/image091.png',
-                caption: 'VIEW RACK MOUNTING SAS Sx 7210'
-            },
-            {
-                path: './files/example/Standart Installation/image093.png',
-                caption: 'CONNECTION SFP + PATCH CORE INSTALLED (LABEL)'
-            },
-            {
-                path: './files/example/Standart Installation/image095.png',
-                caption: 'SPARE PATCH CORE + PROTECTED INSTALLED (LABEL)'
-            },
-            {
-                path: './files/example/Standart Installation/image097.png',
-                caption: 'GROUNDING ON SAS Sx 7210 (LABEL)'
-            },
-            {
-                path: './files/example/Standart Installation/image099.png',
-                caption: 'GROUNDING ON BUS BAR (LABEL)'
-            },
-            {
-                path: './files/example/Standart Installation/image101.png',
-                caption: 'CONNECTION POWER ON SAS Sx 7210 (LABEL)'
-            },
-            {
-                path: './files/example/Standart Installation/image103.png',
-                caption: 'CONNECTION PATCH CORE ON OTB INSTALLED (LABEL)'
-            },
-        ],
-        serial: [
-            {
-                path: './files/example/Serial Number & Part Number/image104.png',
-                caption: 'PART NUMBER AND SERIAL NUMBER SAS Sx 7210'
-            },
-            {
-                path: './files/example/Serial Number & Part Number/image106.png',
-                caption: 'PART NUMBER AND SERIAL NUMBER SFP 1'
-            },
-            {
-                path: './files/example/Serial Number & Part Number/image108.png',
-                caption: 'PART NUMBER AND SERIAL NUMBER SFP 2'
-            },
-            {
-                path: './files/example/Serial Number & Part Number/image110.png',
-                caption: 'PART NUMBER AND SERIAL NUMBER PSU 1'
-            },
-            {
-                path: './files/example/Serial Number & Part Number/image112.png',
-                caption: 'PART NUMBER AND SERIAL NUMBER PSU 2'
-            },
-            {
-                path: './files/example/Serial Number & Part Number/image112.png',
-                caption: 'PART NUMBER OS/FLASH CARD'
-            },
-        ],
-        layout: [
-            {
-                path: './files/example/Surver Data/layout.jpg',
-                caption: 'Layout'
-            },
-        ]
+    const folder = {
+        shelter: './files/example/View Site/',
+        kwh: './files/example/KWH/',
+        power: './files/example/ACPBD/',
+        prop: './files/example/Prop Sas SX 7210/',
+        rectifier: './files/example/Rectifier/',
     }
-    return imgs[step];
+
+    if (typeof folder[step] != 'undefined') {
+        const list = fs.readdirSync(folder[step]);
+        const images = [];
+        list.forEach(file => {
+            let filePath = folder[step]+file;
+            let extension = path.extname(filePath);
+            let caption = path.basename(filePath, extension);
+            images.push({path: filePath, caption: caption});
+        });
+        return images;
+    } else {
+        const imgs = {
+            shelter: [
+                {
+                    path: './files/example/Shelter View/image033.png',
+                    caption: 'Shelter view'
+                },
+                {
+                    path: './files/example/Shelter View/image035.png',
+                    caption: 'Shelter view'
+                },
+                {
+                    path: './files/example/Shelter View/image037.png',
+                    caption: 'Shelter view'
+                },
+                {
+                    path: './files/example/Shelter View/image039.png',
+                    caption: 'Shelter view'
+                },
+                {
+                    path: './files/example/Shelter View/image041.png',
+                    caption: 'Shelter view'
+                }
+            ],
+            kwh: [
+                {
+                    path: './files/example/KWH/image043.png',
+                    caption: 'KWH'
+                },
+                {
+                    path: './files/example/KWH/image045.png',
+                    caption: 'MCB KWH'
+                },
+                {
+                    path: './files/example/KWH/image047.png',
+                    caption: 'Phase R Load Current (Measured) 1.14 A' 
+                },
+                {
+                    path: './files/example/KWH/image049.png',
+                    caption: 'Phase S Load Current (Measured) 1.05  A'
+                },
+                {
+                    path: './files/example/KWH/image051.png',
+                    caption: 'Phase T Load Current (Measured) 1.26  A'
+                },
+                {
+                    path: './files/example/KWH/image053.png',
+                    caption: 'Phase N Load Current (Measured) 0.09 A'
+                }
+            ],
+            power: [
+                {
+                    path: './files/example/AC POWER/ACPDB OUTDOOR.png',
+                    caption: 'AC Power Distribution Board Outdoor'
+                },
+                {
+                    path: './files/example/AC POWER/Voltage Measurement at Panel R-N 22.0 V.png',
+                    caption: 'Voltage Measurement at Panel R-N 22.0 V'
+                },
+                {
+                    path: './files/example/AC POWER/Voltage Measurement at Panel S-N 22.0 V.png',
+                    caption: 'Voltage Measurement at Panel S-N 22.0 V'
+                },
+                {
+                    path: './files/example/AC POWER/Voltage Measurement at Panel T-N 22.0 V.png',
+                    caption: 'Voltage Measurement at Panel T-N 22.0 V'
+                }
+            ],
+            prop: [
+                {
+                    path: './files/example/PROP SAS Sx 7210/image060.png',
+                    caption: 'FULL RACK RECTIFIER'
+                },
+                {
+                    path: './files/example/PROP SAS Sx 7210/image062.png',
+                    caption: 'PROPOSED NEW SAS Sx 7210'
+                },
+                {
+                    path: './files/example/PROP SAS Sx 7210/image064.png',
+                    caption: 'MCB SAS Sx 7210'
+                },
+                {
+                    path: './files/example/PROP SAS Sx 7210/image067.png',
+                    caption: 'GROUNDING'
+                },
+            ],
+            rectifier: [
+                {
+                    path: './files/example/Rectifier/image070.png',
+                    caption: 'Rectifier 1 Brand'
+                },
+                {
+                    path: './files/example/Rectifier/image072.png',
+                    caption: 'Module Rectifier 1'
+                },
+                {
+                    path: './files/example/Rectifier/image074.png',
+                    caption: ' Current Load 1'
+                },
+                {
+                    path: './files/example/Rectifier/image076.png',
+                    caption: 'Existing Battery Bank'
+                }
+            ],
+            installation: [
+                {
+                    path: './files/example/Standart Installation/image082.png',
+                    caption: 'VIEW FULL RACK RECTIFIER OPEN'
+                },
+                {
+                    path: './files/example/Standart Installation/image083.png',
+                    caption: 'VIEW FULL RACK RECTIFIER CLOSE'
+                },
+                {
+                    path: './files/example/Standart Installation/image086.png',
+                    caption: 'MCB/POWER CONNECTION SAS Sx 7210 (LABEL)'
+                },
+                {
+                    path: './files/example/Standart Installation/image088.png',
+                    caption: 'VIEW SAS Sx 7210 INSTALLED'
+                },
+                {
+                    path: './files/example/Standart Installation/image091.png',
+                    caption: 'VIEW RACK MOUNTING SAS Sx 7210'
+                },
+                {
+                    path: './files/example/Standart Installation/image093.png',
+                    caption: 'CONNECTION SFP + PATCH CORE INSTALLED (LABEL)'
+                },
+                {
+                    path: './files/example/Standart Installation/image095.png',
+                    caption: 'SPARE PATCH CORE + PROTECTED INSTALLED (LABEL)'
+                },
+                {
+                    path: './files/example/Standart Installation/image097.png',
+                    caption: 'GROUNDING ON SAS Sx 7210 (LABEL)'
+                },
+                {
+                    path: './files/example/Standart Installation/image099.png',
+                    caption: 'GROUNDING ON BUS BAR (LABEL)'
+                },
+                {
+                    path: './files/example/Standart Installation/image101.png',
+                    caption: 'CONNECTION POWER ON SAS Sx 7210 (LABEL)'
+                },
+                {
+                    path: './files/example/Standart Installation/image103.png',
+                    caption: 'CONNECTION PATCH CORE ON OTB INSTALLED (LABEL)'
+                },
+            ],
+            serial: [
+                {
+                    path: './files/example/Serial Number & Part Number/image104.png',
+                    caption: 'PART NUMBER AND SERIAL NUMBER SAS Sx 7210'
+                },
+                {
+                    path: './files/example/Serial Number & Part Number/image106.png',
+                    caption: 'PART NUMBER AND SERIAL NUMBER SFP 1'
+                },
+                {
+                    path: './files/example/Serial Number & Part Number/image108.png',
+                    caption: 'PART NUMBER AND SERIAL NUMBER SFP 2'
+                },
+                {
+                    path: './files/example/Serial Number & Part Number/image110.png',
+                    caption: 'PART NUMBER AND SERIAL NUMBER PSU 1'
+                },
+                {
+                    path: './files/example/Serial Number & Part Number/image112.png',
+                    caption: 'PART NUMBER AND SERIAL NUMBER PSU 2'
+                },
+                {
+                    path: './files/example/Serial Number & Part Number/image112.png',
+                    caption: 'PART NUMBER OS/FLASH CARD'
+                },
+            ],
+            layout: [
+                {
+                    path: './files/example/Survey Data/layout.jpg',
+                    caption: 'Layout'
+                },
+            ]
+        }
+        return imgs[step];
+    }
 }
 
 const done = async function(bot, chat) {
-    await bot.sendMessage(from, `tssr has been saved.\nThank you!`);
+    await bot.sendMessage(from, `TSSR has been saved.\nThank you!`);
     await bot.backToMenu();
 }
 
