@@ -20,6 +20,7 @@ const processId = async function(bot, chat) {
     let evidence = '';
     if (split.length > 0) {
         evidence = split[1].replace(/^\s+/, '');
+        evidence = evidence.replace(/\//g, ' ');
     }
 
     if (!/^[a-zA-Z0-9]+$/.test(siteId)) {
@@ -78,7 +79,8 @@ const processFile = async function(bot, chat) {
         }
         const file = chat.media;
         const extension = file.mimetype.split('/')[1];
-        const fileName = `${site.siteId}_${chat.body}_${chat.from}_${Date.now()}.${extension}`;
+        const caption = chat.body.replace(/\//g, ' ');
+        const fileName = `${site.siteId}_${caption}_${chat.from}_${Date.now()}.${extension}`;
         const base64File = Buffer.from(file.data, 'base64');
         const info = {};
         info.file = `./files/evidence/${id}/${evidence}/${fileName}`;
