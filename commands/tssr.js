@@ -90,13 +90,13 @@ const getMessage = function(type, siteName, siteId, done = false) {
     };
 
     const messageDone = {
-        shelter: `Shelter photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step`,
-        kwh: `KWH PLN photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step`,
-        power: `AC power photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step`,
-        prop: `PROP SAS Sx 7210 photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step`,
-        rectifier: `Rectifier photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step`,
-        installation: `Standart Installation photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step`,
-        serial: `Serial Number & Part Number photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step`,
+        shelter: `Shelter photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step or *!done* to complete tssr`,
+        kwh: `KWH PLN photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step or *!done* to complete tssr`,
+        power: `AC power photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step or *!done* to complete tssr`,
+        prop: `PROP SAS Sx 7210 photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step or *!done* to complete tssr`,
+        rectifier: `Rectifier photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step or *!done* to complete tssr`,
+        installation: `Standart Installation photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step or *!done* to complete tssr`,
+        serial: `Serial Number & Part Number photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!next* to proceed to next step or *!done* to complete tssr`,
         layout: `Layout/Sketsa photo for ${siteName} (${siteId}) has been saved!\nSend another file or send *!done* to complete tssr`,
     };
 
@@ -344,7 +344,7 @@ const img = function(step) {
     }
 }
 
-const done = async function(bot, chat) {
+const done = async function(bot, from) {
     await bot.sendMessage(from, `TSSR has been saved.\nThank you!`);
     await bot.backToMenu();
 }
