@@ -7,6 +7,8 @@ const evidence = require('./commands/evidence');
 const submitmop = require('./commands/submitmop');
 const submittp = require('./commands/submittp');
 const submitpermit = require('./commands/submitpermit');
+const abd = require('./commands/abd');
+const patp = require('./commands/patp');
 
 module.exports = {
   cpm: 1000,
@@ -58,22 +60,16 @@ module.exports = {
       action: evidence.submitId
     },
     {
-      keyword: '!submittp',
-      description: 'Submit Topologi file',
+      keyword: '!abd',
+      description: 'Submit ABD file',
       accept: 'text',
-      action: submittp.submitId
+      action: abd.submitId
     },
     {
-      keyword: '!submitmop',
-      description: 'Submit MOP file',
+      keyword: '!patp',
+      description: 'Submit PATP file',
       accept: 'text',
-      action: submitmop.submitId
-    },
-    {
-      keyword: '!submitpermit',
-      description: 'Submit Permit file',
-      accept: 'text',
-      action: submitpermit.submitId
+      action: patp.submitId
     },
   ]
 };
